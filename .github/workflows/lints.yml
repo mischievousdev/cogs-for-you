@@ -1,0 +1,23 @@
+# Refered from kyb3r/modmail
+name: CFY Workflow
+on: [push, pull_request]
+
+jobs:
+  code_style:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install pylint black
+      continue-on-error: true
+    - name: Pylint
+      run: pylint admin/* animal/* eval/* fun/*
+      continue-on-error: true
+    - name: Black
+      run: black .
