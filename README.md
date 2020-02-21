@@ -16,10 +16,10 @@ Simple cogs for you to ease the work
 **Following Cogs are avail**
 | Cogs | Their use |
 |------|-----------|
-| **Animals** ([folder]()) | Gives the fact/image of different animals |
-| **Admin** ([folder]()) | Owner commands |
-| **Eval** ([folder]()) | Eval Command |
-| **Fun** ([folder]()) | Fun commands |
+| **Animals** | Gives the fact/image of different animals |
+| **Admin** | Owner commands |
+| **Eval** | Eval Command |
+| **Fun** | Fun commands |
 
 # Contributing
 
@@ -27,4 +27,4 @@ An another helpfull hand is always welcome.
 
 I use specified code style for this repo, which is [psf/black](https://github.com/psf/black)
 
-This project follows semantic versioning
+This project follows semantic versioning, for more info see [here](https://github.com/mischievousdev/cogs-for-you/blob/master/CONTRIBUTING.md)
