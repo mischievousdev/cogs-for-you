@@ -69,17 +69,30 @@ class Misc(commands.Cog):
     @commands.command()
     async def xkcd(self, ctx, number: int = None):
         """Gives you the xkcd comics"""
-        if num is None:
+        if number is None:
             num = random.randint(1, 2225)
+            r = requests.get(f"https://xkcd.com/{num}/info.0.json")
+            r = r.json()
+            title = r["safe_title"]
+            month = r["month"]
+            day = r["day"]
+            year = r["year"]
+            img = r["img"]
+            embed = discord.Embed(
+                title=title, description=r["alt"], color=discord.Color.blurple()
+            )
+            embed.set_image(url=img)
+            embed.set_footer(text=f"Comic Created on {day}/{month}/{year}")
+            await ctx.send(embed=embed)
 
         else:
-            if num > 2225:
+            if number > 2225:
                 await ctx.send(
                     "The maximum comic number is 2225, try choosing a number less than 2225"
                 )
 
             num = number
-            r = requests.get(f"https://xkcd.com/2054/info.0.json")
+            r = requests.get(f"https://xkcd.com/{num}/info.0.json")
             r = r.json()
             title = r["safe_title"]
             month = r["month"]
