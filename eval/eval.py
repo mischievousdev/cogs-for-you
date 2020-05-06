@@ -13,6 +13,7 @@ class Eval:
         self.bot = bot
 
     @commands.command(name="eval")
+    @commands.is_owner()
     async def _eval(self, ctx, *, body):
         """Evaluates python code"""
         env = {
